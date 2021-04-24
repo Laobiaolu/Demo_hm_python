@@ -1,0 +1,12 @@
+requests
+aiohttp
+tornado
+selenium
+appium-python-client
+
+
+
+
+scrapy
+pymongo
+pyspider
