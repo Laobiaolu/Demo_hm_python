@@ -2,8 +2,8 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="c3c1031a-f1e8-421f-a9c7-9f47bf1f3e88" name="centos-linux" url="http://192.168.145.132:22">
-        <fileTransfer rootFolder="/root" accessType="SFTP" host="192.168.145.132" port="22" sshConfigId="e5d293d9-5e97-4179-8040-90a12e86711e" sshConfig="root@192.168.145.132:22 password">
+      <webServer id="c3c1031a-f1e8-421f-a9c7-9f47bf1f3e88" name="centos-linux" url="http://192.168.121.128:22">
+        <fileTransfer rootFolder="/root" accessType="SFTP" host="192.168.121.128" port="22" sshConfigId="e5d293d9-5e97-4179-8040-90a12e86711e" sshConfig="root@192.168.121.128:22 password">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>

@@ -1,12 +1,10 @@
-requests
+scrapy
+scrapyd
 aiohttp
+scrapy-redis
+lxml
+requests
 tornado
 selenium
 appium-python-client
-
-
-
-
-scrapy
-pymongo
 pyspider

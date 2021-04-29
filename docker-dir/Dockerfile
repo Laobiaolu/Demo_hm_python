@@ -1,32 +1,18 @@
-# 安装一个requests
-FROM python:alpine3.6
+FROM python:3.6
 
-RUN /usr/local/bin/python -m pip install --upgrade pip
+WORKDIR /app
 
-RUN pip3 install -r requirements.txt
-
-#安装支持http/HTTPS协议客户端请求的库
-#RUN pip install requests && \
-#    pip install aiohttp && \
-#    pip install tornado && \
-#    pip install selenium && \
-#    pip install appium-python-client
+ADD requirements.txt /app
 
 
-#安装gcc编译环境
-RUN apk add --no-cache gcc musl-dev
-
-#下列模块的安装需要gcc编译环境
-RUN pip install twisted &&\
-    pip install gevent
+RUN mkdir /etc/scrapyd
 
 
-#安装 scrapy
-#Ubuntu下依赖：libxml2-dev libxslt-dev zliblg-dev libffi-dev libssl-dev
-RUN apk add --no-cache libxml2-dev libxslt-dev zlib-dev libffi-dev openssl-dev &&\
-    pip install scrapy
+RUN wget http://download.redis.io/releases/redis-stable.tar.gz && tar xf redis-stable.tar.gz && cd redis-stable && make && make install
 
-#安装pyspider
-#Ubuntu下依赖：
-RUN apk add --no-cache curl-dev openssl-dev libxml2-dev libxslt-dev zlib-dev &&\
-    pip install pyspider
+RUN wget https://cache.ruby-lang.org/pub/ruby/2.5/ruby-2.5.1.tar.gz && tar xf ruby-2.5.1.tar.gz && cd ruby-2.5.1 && ./configure && make && make install
+
+RUN wget https://rubygems.org/rubygems/rubygems-2.7.7.tgz && tar xf rubygems-2.7.7.tgz && cd rubygems-2.7.7 && ruby setup.rb && gem install redis
+
+RUN mkdir /scrapyd && mkdir /app/redis-cluster && pip install -r requirements.txt
+
